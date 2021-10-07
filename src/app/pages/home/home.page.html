@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Categorías Comida
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-button expand="block" routerLink="../tiposcomida" >
+    Click me
+  </ion-button>
+  <ion-list *ngFor="let categoria of categorias" >
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>ID:{{categoria.idCategory}}</ion-card-subtitle>
+        <ion-card-title>{{categoria.strCategory}}</ion-card-title>
+      </ion-card-header>
+      <ion-img src="{{categoria.strCategoryThumb}}"></ion-img>
+      <ion-card-content>
+        {{categoria.strCategoryDescription}}
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+</ion-content>
