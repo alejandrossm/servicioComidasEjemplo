@@ -1,9 +1,24 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>tiposcomida</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-capitalize">{{categoria}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content class="ion-padding">
+  <ion-list *ngFor="let comida of comidas" >
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>ID:{{comida.idMeal}}</ion-card-subtitle>
+        <ion-card-title>{{comida.strMeal}}</ion-card-title>       
+      </ion-card-header>
+        <ion-icon name="ellipsis-vertical" color="primary" (click)="abrirMenu(comida.idMeal)"></ion-icon>
+      <ion-img src="{{comida.strMealThumb}}"></ion-img>
+      <ion-card-content (click)="onClick(comida.idMeal)">
+        Ver Receta
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 </ion-content>

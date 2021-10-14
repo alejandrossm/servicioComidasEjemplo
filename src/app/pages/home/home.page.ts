@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router,NavigationExtras } from '@angular/router';
 import { Category } from 'src/app/interfaces/comidas';
 import { ComidaService } from '../../services/comida.service';
 
@@ -11,7 +12,7 @@ export class HomePage implements OnInit {
 
   categorias: Category[] = [];
 
-  constructor(private comidasrv: ComidaService) { }
+  constructor(private comidasrv: ComidaService, private router:Router) { }
 
   ngOnInit() {
     this.comidasrv.getCategorias().subscribe(resp => {
@@ -23,6 +24,17 @@ export class HomePage implements OnInit {
   
 
 
+  }
+
+  onClick(categoria:string)
+  {
+    let extras:NavigationExtras=
+    {
+      state: {cat:categoria}
+    }
+
+    //console.log('Click en ' + categoria);
+    this.router.navigate(['/tiposcomida'],extras);
   }
 
 }

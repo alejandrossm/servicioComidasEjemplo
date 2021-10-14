@@ -7,7 +7,6 @@ import { Categories, Meals } from '../interfaces/comidas';
 })
 export class ComidaService {
 
-  tipo:string="Chicken";
 
   constructor(private httpclient:HttpClient) { }
 
